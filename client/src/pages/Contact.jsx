@@ -5,7 +5,6 @@ import {
   ArrowRight,
   Mail,
   Phone,
-  MapPin,
   Clock3,
   Send,
   CheckCircle2,
@@ -58,32 +57,33 @@ function Contact() {
   };
 
   const handleSubmit = async (event) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  try {
-    await api.post("/contact-enquiries", {
-      ...formData,
-      consent: true,
-    });
+    try {
+      await api.post("/contact-enquiries", {
+        ...formData,
+        consent: true,
+      });
 
-    setSubmitted(true);
+      setSubmitted(true);
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
-  } catch (error) {
-    console.error("Contact enquiry error:", error);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Contact enquiry error:", error);
 
-    alert(
-      error.response?.data?.message ||
-        "Unable to send your message. Please try again."
-    );
-  }
-};
+      alert(
+        error.response?.data?.message ||
+          "Unable to send your message. Please try again."
+      );
+    }
+  };
+
   return (
     <div className="contact-page">
       {/* Hero */}
@@ -113,6 +113,7 @@ function Contact() {
       <section className="contact-info-section section-padding">
         <div className="container">
           <div className="contact-info-grid">
+            {/* Email */}
             <div className="contact-info-card">
               <div className="contact-info-icon">
                 <Mail size={23} />
@@ -120,18 +121,19 @@ function Contact() {
 
               <span>Email Us</span>
 
-              <h3>hello@talentbridge.com</h3>
+              <h3>careerstalentbrize@gmail.com</h3>
 
               <p>
                 Send us an email and our team will get back to you.
               </p>
 
-              <a href="mailto:hello@talentbridge.com">
+              <a href="mailto:careerstalentbrize@gmail.com">
                 Send an Email
                 <ArrowRight size={15} />
               </a>
             </div>
 
+            {/* Phone */}
             <div className="contact-info-card">
               <div className="contact-info-icon">
                 <Phone size={23} />
@@ -139,34 +141,14 @@ function Contact() {
 
               <span>Call Us</span>
 
-              <h3>+91 98765 43210</h3>
+              <h3>+91 93057 65097</h3>
 
               <p>
                 Speak directly with our recruitment team.
               </p>
 
-              <a href="tel:+919876543210">
+              <a href="tel:+919305765097">
                 Call Our Team
-                <ArrowRight size={15} />
-              </a>
-            </div>
-
-            <div className="contact-info-card">
-              <div className="contact-info-icon">
-                <MapPin size={23} />
-              </div>
-
-              <span>Visit Us</span>
-
-              <h3>Indore, Madhya Pradesh</h3>
-
-              <p>
-                Our team is based in Indore and works with organizations and
-                candidates across locations.
-              </p>
-
-              <a href="#office">
-                View Location
                 <ArrowRight size={15} />
               </a>
             </div>
@@ -175,7 +157,7 @@ function Contact() {
       </section>
 
       {/* Main contact */}
-      <section className="contact-main section-padding" id="office">
+      <section className="contact-main section-padding">
         <div className="container">
           <div className="contact-main-grid">
             {/* Left */}
@@ -194,6 +176,7 @@ function Contact() {
               </p>
 
               <div className="contact-detail-list">
+                {/* Email */}
                 <div>
                   <div className="contact-detail-icon">
                     <Mail size={19} />
@@ -201,10 +184,11 @@ function Contact() {
 
                   <div>
                     <span>Email</span>
-                    <strong>hello@talentbridge.com</strong>
+                    <strong>careerstalentbrize@gmail.com</strong>
                   </div>
                 </div>
 
+                {/* Phone */}
                 <div>
                   <div className="contact-detail-icon">
                     <Phone size={19} />
@@ -212,10 +196,11 @@ function Contact() {
 
                   <div>
                     <span>Phone</span>
-                    <strong>+91 98765 43210</strong>
+                    <strong>+91 93057 65097</strong>
                   </div>
                 </div>
 
+                {/* Working Hours */}
                 <div>
                   <div className="contact-detail-icon">
                     <Clock3 size={19} />
@@ -223,18 +208,9 @@ function Contact() {
 
                   <div>
                     <span>Working Hours</span>
-                    <strong>Monday – Saturday, 9:30 AM – 6:30 PM</strong>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="contact-detail-icon">
-                    <MapPin size={19} />
-                  </div>
-
-                  <div>
-                    <span>Office</span>
-                    <strong>Indore, Madhya Pradesh, India</strong>
+                    <strong>
+                      Monday – Saturday, 9:30 AM – 6:30 PM
+                    </strong>
                   </div>
                 </div>
               </div>
@@ -308,7 +284,10 @@ function Contact() {
                     </p>
                   </div>
 
-                  <form className="contact-form" onSubmit={handleSubmit}>
+                  <form
+                    className="contact-form"
+                    onSubmit={handleSubmit}
+                  >
                     <div className="contact-form-row">
                       <div className="form-group">
                         <label htmlFor="contact-name">
@@ -371,19 +350,26 @@ function Contact() {
                           onChange={handleChange}
                           required
                         >
-                          <option value="">Select a subject</option>
+                          <option value="">
+                            Select a subject
+                          </option>
+
                           <option value="Job Opportunity">
                             Job Opportunity
                           </option>
+
                           <option value="Candidate Support">
                             Candidate Support
                           </option>
+
                           <option value="Hiring Requirement">
                             Hiring Requirement
                           </option>
+
                           <option value="Recruitment Services">
                             Recruitment Services
                           </option>
+
                           <option value="General Enquiry">
                             General Enquiry
                           </option>
@@ -429,67 +415,6 @@ function Contact() {
                   </form>
                 </>
               )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Location */}
-      <section className="contact-location section-padding">
-        <div className="container">
-          <div className="contact-location-card">
-            <div className="contact-location-content">
-              <span className="eyebrow">OUR LOCATION</span>
-
-              <h2>
-                Based in Indore.
-                <span> Connected everywhere.</span>
-              </h2>
-
-              <p>
-                Our team operates from Indore, Madhya Pradesh, while supporting
-                candidates and businesses across multiple locations.
-              </p>
-
-              <div className="location-address">
-                <MapPin size={20} />
-
-                <div>
-                  <strong>TalentBridge</strong>
-                  <span>Indore, Madhya Pradesh</span>
-                  <span>India</span>
-                </div>
-              </div>
-
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Indore%2C%20Madhya%20Pradesh"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-primary"
-              >
-                Open in Maps
-                <ArrowRight size={17} />
-              </a>
-            </div>
-
-            <div className="contact-map-placeholder">
-              <div className="map-grid"></div>
-
-              <div className="map-pin">
-                <div>
-                  <MapPin size={28} />
-                </div>
-
-                <span>Indore, MP</span>
-              </div>
-
-              <div className="map-label map-label-one">
-                TalentBridge
-              </div>
-
-              <div className="map-label map-label-two">
-                Madhya Pradesh
-              </div>
             </div>
           </div>
         </div>
@@ -577,7 +502,10 @@ function Contact() {
                 <ArrowRight size={17} />
               </Link>
 
-              <Link to="/employers" className="contact-final-secondary">
+              <Link
+                to="/employers"
+                className="contact-final-secondary"
+              >
                 Hire Talent
                 <ArrowRight size={16} />
               </Link>

@@ -62,15 +62,27 @@ button {
 /* Navbar */
 
 .navbar {
-  height: 76px;
-  background: rgba(255, 255, 255, 0.96);
+  position: relative;
+  z-index: 100;
+  background: #ffffff;
   border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(12px);
 }
 
+.navbar-brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 101;
+}
+
+.navbar-logo {
+  width: 180px;
+  height: 75px;
+  object-fit: contain;
+  display: block;
+  position: relative;
+  z-index: 102;
+}
 .navbar-inner {
   height: 100%;
   display: flex;
@@ -109,15 +121,30 @@ button {
 }
 
 .nav-links a {
+  position: relative;
   font-size: 14px;
   font-weight: 600;
   color: #536273;
-  transition: 0.2s ease;
+  transition: color 0.2s ease;
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+  color: var(--primary);
+}
+
 .nav-links a.active {
   color: var(--primary);
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
 }
 
 .nav-links .nav-cta {
@@ -253,6 +280,15 @@ button {
 /* Responsive */
 
 @media (max-width: 900px) {
+   .nav-links a.active::after {
+    display: none;
+  }
+
+  .nav-links a.active {
+    background: #f1f6fa;
+    color: var(--primary);
+    border-radius: 6px;
+  }
   .menu-button {
     display: block;
   }
@@ -7420,6 +7456,13 @@ button {
   border-color: #f0caca;
 }
 
+.admin-brand-logo {
+  width: 145px;
+  height: 58px;
+  object-fit: contain;
+  display: block;
+}
+
 @media (max-width: 900px) {
   .admin-navbar-inner {
     gap: 12px;
@@ -7455,7 +7498,19 @@ button {
     gap: 2px;
   }
 }
+@media (max-width: 768px) {
+  .navbar-logo {
+    width: 145px;
+    height: 60px;
+    margin-bottom: -5px;
+    object-fit: contain;
+  }
 
+  .navbar {
+    min-height: 64px;
+    overflow: visible;
+  }
+}
 /* =========================
    ADMIN LOGIN PAGE
 ========================= */

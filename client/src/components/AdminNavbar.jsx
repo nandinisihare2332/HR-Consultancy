@@ -1,4 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import logo from "../assets/talentbridge-logo.png";
+
 import {
   LayoutDashboard,
   BriefcaseBusiness,
@@ -54,9 +56,14 @@ function AdminNavbar() {
     <header className="admin-navbar">
       <div className="container admin-navbar-inner">
         <NavLink to="/admin/dashboard" className="admin-brand">
-          TalentBridge
-          <span>ADMIN</span>
-        </NavLink>
+  <img
+    src={logo}
+    alt="TalentBridge"
+    className="admin-brand-logo"
+  />
+
+  <span>ADMIN</span>
+</NavLink>
 
         <nav className="admin-nav-links">
           {links.map((link) => {

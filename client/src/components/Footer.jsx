@@ -158,23 +158,19 @@ function Footer() {
 
 
         {/* Contact */}
-        <div className="footer-column">
+<div className="footer-column">
 
-          <h4>Contact</h4>
+  <h4>Contact</h4>
 
-          <p>
-            hello@talentbridge.com
-          </p>
+  <p>
+    careerstalentbrize@gmail.com
+  </p>
 
-          <p>
-            +91 90000 00000
-          </p>
+  <p>
+    +91 93057 65097
+  </p>
 
-          <p>
-            Indore, Madhya Pradesh, India
-          </p>
-
-        </div>
+</div>
 
       </div>
 

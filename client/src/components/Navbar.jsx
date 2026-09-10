@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X, BriefcaseBusiness } from "lucide-react";
 import { useState } from "react";
+import logo from "../assets/talentbridge-logo.png";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,14 +12,12 @@ function Navbar() {
     <header className="navbar">
       <div className="container navbar-inner">
 
-        <Link to="/" className="logo" onClick={closeMenu}>
-          <span className="logo-icon">
-            <BriefcaseBusiness size={22} />
-          </span>
-
-          <span>
-            Talent<span>Bridge</span>
-          </span>
+        <Link to="/" className="navbar-brand">
+         <img
+           src={logo}
+           alt="TalentBridge"
+           className="navbar-logo"
+         />
         </Link>
 
         <button
@@ -30,7 +29,7 @@ function Navbar() {
         </button>
 
         <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <NavLink to="/" onClick={closeMenu}>
+          <NavLink to="/" end onClick={closeMenu}>
             Home
           </NavLink>
 
