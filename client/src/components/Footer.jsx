@@ -41,11 +41,13 @@ function Footer() {
           {/* Social Media */}
           <div className="social-links">
 
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              className="social-icon"
-            >
+<a
+  href="https://www.linkedin.com/company/talentbrizehr/"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="LinkedIn"
+  className="social-icon"
+>
               <svg
                 width="19"
                 height="19"
